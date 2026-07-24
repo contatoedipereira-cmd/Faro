@@ -1,0 +1,24 @@
+# Dependências
+node_modules/
+
+# Builds
+apps/web/.next/
+apps/api/dist/
+*.tsbuildinfo
+
+# Variáveis de ambiente — nunca versionar segredos
+.env
+.env.local
+.env.*.local
+
+# Dados reais coletados — nunca versionar dados pessoais de prospecção
+/data/
+/exports/
+*.dump
+*.sql.gz
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

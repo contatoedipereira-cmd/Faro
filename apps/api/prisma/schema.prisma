@@ -1,0 +1,42 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id                String   @id @default(uuid())
+  name              String
+  segment           String?
+  address           String?
+  city              String?
+  state             String?
+  postalCode        String?
+  latitude          Float
+  longitude         Float
+  phone             String?
+  whatsapp          String?
+  email             String?
+  website           String?
+  instagram         String?
+  facebook          String?
+  googleRating      Float?
+  googleReviews     Int?
+  hasWebsite        Boolean  @default(false)
+  hasInstagram      Boolean  @default(false)
+  hasFacebook       Boolean  @default(false)
+  hasWhatsapp       Boolean  @default(false)
+  employeesEstimate String?
+  revenueRange      String?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([segment])
+  @@index([city])
+  @@map("companies")
+}
